@@ -1,7 +1,6 @@
 import React from 'react';
+import Button from '@mui/material/Button';
 import './App.css';
-import Button from '@material-ui/core/Button';
-
 
 function App() {
   return (
@@ -9,10 +8,10 @@ function App() {
       <h1>Aplicação para mostrar pesquisas cientificas.</h1>
       <Button
         variant="contained"
-        color="primary"
-        onClick={() => console.log('montando o setup inicial')}
+        color="success"
+        onClick={() => console.log('versão do material UI atualizada.')}
       >
-          Default
+        Contained
       </Button>
     </div>
   );
