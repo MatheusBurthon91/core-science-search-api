@@ -28,6 +28,7 @@
                     ".jsx"
                 ]
             }
-        ]
+        ],
+        "no-underscore-dangle": "off"
     }
 }
