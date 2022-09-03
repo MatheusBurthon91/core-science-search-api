@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 import './App.css';
 import env from 'react-dotenv';
-// agora vamos testar se as api consegue retornar dados na aplicação
 
 function App() {
   const [search, setSearch] = useState('');
