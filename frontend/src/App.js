@@ -9,7 +9,7 @@ function App() {
       <Button
         variant="contained"
         color="success"
-        onClick={() => window.console.log('versão do material UI atualizada.')}
+        onClick={() => window.console.log('versão do react-scripts, atualizada.')}
       >
         Contained
       </Button>
