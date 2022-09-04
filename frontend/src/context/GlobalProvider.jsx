@@ -1,10 +1,19 @@
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import React from 'react';
 import globalContext from './GlobalContext';
 
 export default function GlobalProvider({ children }) {
+  const [search, setSearch] = useState('');
+  const [responseApi, setResponseApi] = useState([]);
+  const obj = {
+    search,
+    setSearch,
+    responseApi,
+    setResponseApi,
+  };
+
   return (
-    <globalContext.Provider>
+    <globalContext.Provider value={obj}>
       { children }
     </globalContext.Provider>
   );

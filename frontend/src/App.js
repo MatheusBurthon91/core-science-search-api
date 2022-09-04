@@ -1,32 +1,15 @@
-import React, { useState } from 'react';
-import Button from '@mui/material/Button';
-import getInfomationsApi from './services';
+import React, { useContext } from 'react';
 import './App.css';
+import FormSearch from './components/FormSearch';
+import GlobalContext from './context/GlobalContext';
 
 function App() {
-  const [search, setSearch] = useState('');
-  const [responseApi, setResponseApi] = useState([]);
-
-  const searchScienceArticles = async (searchValue) => {
-    const data = await getInfomationsApi(searchValue);
-    setResponseApi(data);
-  };
+  const { responseApi } = useContext(GlobalContext);
 
   return (
     <div className="App">
       <h1>Aplicação para mostrar pesquisas cientificas.</h1>
-      <input
-        type="text"
-        placeholder="ache seu artigo"
-        onChange={({ target }) => setSearch(target.value)}
-      />
-      <Button
-        variant="contained"
-        color="success"
-        onClick={() => searchScienceArticles(search)}
-      >
-        Contained
-      </Button>
+      <FormSearch />
       <section>
         {responseApi.map((res) => (
           <div key={res._id}>
@@ -55,6 +38,7 @@ function App() {
         ))}
       </section>
     </div>
+
   );
 }
 

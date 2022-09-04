@@ -3,10 +3,6 @@
         "browser": true,
         "es2021": true
     },
-    "extends": [
-        "plugin:react/recommended",
-        "airbnb"
-    ],
     "overrides": [
     ],
     "parserOptions": {
@@ -19,6 +15,10 @@
     "plugins": [
         "react"
     ],
+    "extends": [
+        "plugin:react/recommended",
+        "airbnb"
+    ],
     "rules": {
         "react/jsx-filename-extension": [
             1,
@@ -29,6 +29,7 @@
                 ]
             }
         ],
-        "no-underscore-dangle": "off"
+        "no-underscore-dangle": "off",
+        "react/jsx-no-constructed-context-values": "off"
     }
 }
