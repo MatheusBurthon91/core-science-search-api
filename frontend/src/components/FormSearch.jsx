@@ -7,11 +7,12 @@ export default function FormSearch() {
   const ref = useRef(null);
 
   const {
-    search, setSearch, setResponseApi, setLoading,
+    search, setSearch, setResponseApi, setLoading, setErro,
   } = useContext(GlobalContext);
 
   const searchScienceArticles = async (searchValue) => {
     try {
+      setErro(false);
       setLoading(true);
       const data = await getInfomationsApi(searchValue);
       ref.current.value = '';
@@ -19,7 +20,10 @@ export default function FormSearch() {
       setResponseApi(data);
       setLoading(false);
     } catch (error) {
-      window.console.log(error);
+      if (error) {
+        window.console.log(error);
+        setErro(true);
+      }
     }
   };
 

@@ -12,7 +12,12 @@ export default function SearchData() {
           <h3>{`Autores: ${res._source.authors.join(' | ')}`}</h3>
           <p>{`tipo de dado: ${res._type}`}</p>
           <p>{`titulo do artigo: ${res._source.title}`}</p>
-          <p>{`descrição do artigo: ${res._source.description}`}</p>
+          <p>
+            {
+            !res._source.description ? 'descrição do artigo: sem decrição' : `descrição do artigo: ${res._source.description}`
+          }
+
+          </p>
           <div>
             {
               res._source.urls.map((url, index) => (
