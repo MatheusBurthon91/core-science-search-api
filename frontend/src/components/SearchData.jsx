@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
 import GlobalContext from '../context/GlobalContext';
+import Loading from './Loading';
 
 export default function SearchData() {
-  const { responseApi } = useContext(GlobalContext);
+  const { responseApi, loading } = useContext(GlobalContext);
 
   return (
     <section>
-      {responseApi.map((res) => (
+      {loading ? (<Loading />) : responseApi.map((res) => (
         <div key={res._id}>
           <h3>{`Autores: ${res._source.authors.join(' | ')}`}</h3>
           <p>{`tipo de dado: ${res._type}`}</p>
@@ -15,14 +16,15 @@ export default function SearchData() {
           <div>
             {
               res._source.urls.map((url, index) => (
-                <ul>
+                <ul key={`${Math.random()} ${url}`}>
                   <li>
+                    link da pesquisa:
                     <a
                       href={url}
                       target="_blank"
                       rel="noreferrer"
                     >
-                      {`link: ${index + 1}`}
+                      {` link: ${index + 1}`}
                     </a>
                   </li>
                 </ul>

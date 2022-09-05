@@ -5,11 +5,15 @@ import globalContext from './GlobalContext';
 export default function GlobalProvider({ children }) {
   const [search, setSearch] = useState('');
   const [responseApi, setResponseApi] = useState([]);
+  const [loading, setLoading] = useState(false);
+
   const obj = {
     search,
     setSearch,
     responseApi,
     setResponseApi,
+    loading,
+    setLoading,
   };
 
   return (

@@ -7,15 +7,17 @@ export default function FormSearch() {
   const ref = useRef(null);
 
   const {
-    search, setSearch, setResponseApi,
+    search, setSearch, setResponseApi, setLoading,
   } = useContext(GlobalContext);
 
   const searchScienceArticles = async (searchValue) => {
     try {
+      setLoading(true);
       const data = await getInfomationsApi(searchValue);
       ref.current.value = '';
       setSearch('');
       setResponseApi(data);
+      setLoading(false);
     } catch (error) {
       window.console.log(error);
     }
