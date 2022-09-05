@@ -4,8 +4,9 @@ import { createTheme } from '@mui/material';
 const theme = createTheme({
   typography: {
     h1: {
-      fontSize: '2.5rem',
+      fontSize: '2.0rem',
       fontWeight: 300,
+      color: '#3E7C17',
     },
   },
 });

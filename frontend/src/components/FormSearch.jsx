@@ -1,8 +1,8 @@
 import React, { useContext, useRef, useEffect } from 'react';
-import Button from '@mui/material/Button';
-import Input from '@mui/material/Input';
+import { Typography, Input, Button } from '@mui/material';
 import getInfomationsApi from '../services';
 import GlobalContext from '../context/GlobalContext';
+import StyleForm from '../styles/styleForm';
 
 export default function FormSearch() {
   const ref = useRef(null);
@@ -38,23 +38,29 @@ export default function FormSearch() {
   };
 
   return (
-    <form>
-      <Input
-        id="filled-basic"
-        inputRef={ref}
-        variant="filled"
-        placeholder="ache seu artigo"
-        onChange={({ target }) => setSearch(target.value)}
-        size="small"
-      />
-      <Button
-        variant="contained"
-        color="success"
-        onClick={() => searchScienceArticles(search)}
-        disabled={disableButton}
-      >
-        achar artigo
-      </Button>
-    </form>
+    <StyleForm>
+      <Typography variant="h1" component="div" gutterBottom>
+        Ache artigos cientificos.
+      </Typography>
+      <section>
+        <Input
+          id="filled-basic"
+          inputRef={ref}
+          variant="filled"
+          placeholder="ache seu artigo"
+          onChange={({ target }) => setSearch(target.value)}
+          size="small"
+          type="search"
+        />
+        <Button
+          variant="contained"
+          onClick={() => searchScienceArticles(search)}
+          disabled={disableButton}
+          size="small"
+        >
+          achar artigo
+        </Button>
+      </section>
+    </StyleForm>
   );
 }
