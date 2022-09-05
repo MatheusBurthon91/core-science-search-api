@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import GlobalContext from '../context/GlobalContext';
+import HandleError from './HandleError';
 import Loading from './Loading';
 
 export default function SearchData() {
@@ -7,7 +8,8 @@ export default function SearchData() {
 
   return (
     <section>
-      {loading ? (<Loading />) : responseApi.map((res) => (
+      {loading && (<Loading />)}
+      {!responseApi ? (<HandleError />) : responseApi.map((res) => (
         <div key={res._id}>
           <h3>{`Autores: ${res._source.authors.join(' | ')}`}</h3>
           <p>{`tipo de dado: ${res._type}`}</p>

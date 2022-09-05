@@ -6,7 +6,6 @@ export default function GlobalProvider({ children }) {
   const [search, setSearch] = useState('');
   const [responseApi, setResponseApi] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [erro, setErro] = useState(false);
 
   const obj = {
     search,
@@ -15,8 +14,6 @@ export default function GlobalProvider({ children }) {
     setResponseApi,
     loading,
     setLoading,
-    erro,
-    setErro,
   };
 
   return (
