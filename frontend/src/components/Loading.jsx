@@ -1,9 +1,12 @@
+import { Typography } from '@mui/material';
 import React from 'react';
 
 export default function Loading() {
   return (
     <main>
-      <h1>Carregamento em progresso...</h1>
+      <Typography variant="h1" component="div" gutterBottom>
+        Carregamento em progresso...
+      </Typography>
     </main>
   );
 }

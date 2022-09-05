@@ -1,6 +1,6 @@
 import React, { useContext, useRef, useEffect } from 'react';
 import Button from '@mui/material/Button';
-import { TextField } from '@mui/material';
+import Input from '@mui/material/Input';
 import getInfomationsApi from '../services';
 import GlobalContext from '../context/GlobalContext';
 
@@ -39,10 +39,9 @@ export default function FormSearch() {
 
   return (
     <form>
-      <TextField
+      <Input
         id="filled-basic"
-        ref={ref}
-        label="ache seu artigo"
+        inputRef={ref}
         variant="filled"
         placeholder="ache seu artigo"
         onChange={({ target }) => setSearch(target.value)}
