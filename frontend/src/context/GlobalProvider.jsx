@@ -7,6 +7,7 @@ export default function GlobalProvider({ children }) {
   const [responseApi, setResponseApi] = useState([]);
   const [loading, setLoading] = useState(false);
   const [disableButton, setDisableButton] = useState(true);
+  const [historySearch, setHistorySearch] = useState([]);
 
   const obj = {
     search,
@@ -17,6 +18,8 @@ export default function GlobalProvider({ children }) {
     setLoading,
     disableButton,
     setDisableButton,
+    historySearch,
+    setHistorySearch,
   };
 
   return (

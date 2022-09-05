@@ -1,5 +1,6 @@
 import React, { useContext, useRef, useEffect } from 'react';
 import Button from '@mui/material/Button';
+import { TextField } from '@mui/material';
 import getInfomationsApi from '../services';
 import GlobalContext from '../context/GlobalContext';
 
@@ -38,11 +39,14 @@ export default function FormSearch() {
 
   return (
     <form>
-      <input
-        type="text"
-        placeholder="ache seu artigo"
+      <TextField
+        id="filled-basic"
         ref={ref}
+        label="ache seu artigo"
+        variant="filled"
+        placeholder="ache seu artigo"
         onChange={({ target }) => setSearch(target.value)}
+        size="small"
       />
       <Button
         variant="contained"
