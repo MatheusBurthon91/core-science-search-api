@@ -8,7 +8,14 @@ export default function FormSearch() {
   const ref = useRef(null);
 
   const {
-    search, setSearch, setResponseApi, setLoading, disableButton, setDisableButton,
+    search,
+    setSearch,
+    setResponseApi,
+    setLoading,
+    disableButton,
+    setDisableButton,
+    historySearch,
+    setHistorySearch,
   } = useContext(GlobalContext);
 
   const enableAndDisableButton = () => {
@@ -28,6 +35,7 @@ export default function FormSearch() {
       setLoading(true);
       setResponseApi([]);
       const data = await getInfomationsApi(searchValue);
+      setHistorySearch([...historySearch, search]);
       ref.current.value = '';
       setSearch('');
       setResponseApi(data);
