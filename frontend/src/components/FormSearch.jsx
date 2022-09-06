@@ -44,9 +44,9 @@ export default function FormSearch() {
       </Typography>
       <section>
         <Input
-          id="filled-basic"
+          id="outlined-basic"
           inputRef={ref}
-          variant="filled"
+          variant="outlined"
           placeholder="ache seu artigo"
           onChange={({ target }) => setSearch(target.value)}
           size="small"
