@@ -45,6 +45,14 @@ export default function FormSearch() {
     }
   };
 
+  const saveHistorySearch = () => {
+    localStorage.setItem('search', JSON.stringify(historySearch));
+  };
+
+  useEffect(() => {
+    saveHistorySearch();
+  }, [historySearch]);
+
   return (
     <StyleForm>
       <Typography variant="h1" component="div" gutterBottom>
