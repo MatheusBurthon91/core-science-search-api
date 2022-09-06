@@ -1,5 +1,4 @@
 import React from 'react';
-import '../App.css';
 import FormSearch from '../components/FormSearch';
 import SearchData from '../components/SearchData';
 
