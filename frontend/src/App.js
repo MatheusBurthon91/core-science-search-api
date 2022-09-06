@@ -1,13 +1,11 @@
 import React from 'react';
 import './App.css';
-import FormSearch from './components/FormSearch';
-import SearchData from './components/SearchData';
+import Home from './pages/Home';
 
 function App() {
   return (
     <div className="App">
-      <FormSearch />
-      <SearchData />
+      <Home />
     </div>
 
   );
