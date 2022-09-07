@@ -1,10 +1,11 @@
 import React, {
-  useContext, useRef, useEffect, /* useState, */
+  useContext, useRef, useEffect,
 } from 'react';
 import { Typography, Input, Button } from '@mui/material';
 import getInfomationsApi from '../services';
 import GlobalContext from '../context/GlobalContext';
 import StyleForm from '../styles/styleForm';
+import saveHistorySearch from '../helpers';
 
 export default function FormSearch() {
   const ref = useRef(null);
@@ -30,21 +31,12 @@ export default function FormSearch() {
     enableAndDisableButton();
   }, [search, disableButton]);
 
-  const saveHistorySearch = () => {
-    const getSearch = JSON.parse(localStorage.getItem('search'));
-    if (getSearch) {
-      localStorage.setItem('search', JSON.stringify([...getSearch, search]));
-    } else {
-      localStorage.setItem('search', JSON.stringify([search]));
-    }
-  };
-
   const searchScienceArticles = async (searchValue) => {
     try {
       setLoading(true);
       setResponseApi([]);
       const data = await getInfomationsApi(searchValue);
-      saveHistorySearch();
+      saveHistorySearch('search', search);
       ref.current.value = '';
       setSearch('');
       setResponseApi(data);
