@@ -3,6 +3,7 @@ import { Grid } from '@mui/material';
 import GlobalContext from '../context/GlobalContext';
 import HandleError from './HandleError';
 import Loading from './Loading';
+import ShowItens from './ShowItens';
 
 export default function SearchData() {
   const { responseApi, loading } = useContext(GlobalContext);
@@ -10,36 +11,8 @@ export default function SearchData() {
   return (
     <Grid>
       {loading && (<Loading />)}
-      {!responseApi ? (<HandleError />) : responseApi.map((res) => (
-        <Grid key={res._id}>
-          <h3>{`Autores: ${res._source.authors.join(' | ')}`}</h3>
-          <p>{`tipo de dado: ${res._type}`}</p>
-          <p>{`titulo do artigo: ${res._source.title}`}</p>
-          <p>
-            {
-            !res._source.description ? 'descrição do artigo: sem decrição' : `descrição do artigo: ${res._source.description}`
-          }
-
-          </p>
-          <Grid>
-            {
-              res._source.urls.map((url, index) => (
-                <ul key={Math.random()}>
-                  <li>
-                    link da pesquisa:
-                    <a
-                      href={url}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      {` link: ${index + 1}`}
-                    </a>
-                  </li>
-                </ul>
-              ))
-            }
-          </Grid>
-        </Grid>
+      {!responseApi ? (<HandleError />) : responseApi.map((res, ind) => (
+        <ShowItens key={res._id} res={res} ind={ind} />
       ))}
     </Grid>
   );
