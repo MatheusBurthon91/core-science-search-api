@@ -24,7 +24,7 @@ export default function SearchData() {
           <Grid>
             {
               res._source.urls.map((url, index) => (
-                <ul key={`${Math.random()} ${url}`}>
+                <ul key={Math.random()}>
                   <li>
                     link da pesquisa:
                     <a

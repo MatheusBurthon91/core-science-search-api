@@ -1,4 +1,6 @@
-import React, { useContext, useRef, useEffect } from 'react';
+import React, {
+  useContext, useRef, useEffect, /* useState, */
+} from 'react';
 import { Typography, Input, Button } from '@mui/material';
 import getInfomationsApi from '../services';
 import GlobalContext from '../context/GlobalContext';
@@ -14,8 +16,6 @@ export default function FormSearch() {
     setLoading,
     disableButton,
     setDisableButton,
-    historySearch,
-    setHistorySearch,
   } = useContext(GlobalContext);
 
   const enableAndDisableButton = () => {
@@ -30,12 +30,21 @@ export default function FormSearch() {
     enableAndDisableButton();
   }, [search, disableButton]);
 
+  const saveHistorySearch = () => {
+    const getSearch = JSON.parse(localStorage.getItem('search'));
+    if (getSearch) {
+      localStorage.setItem('search', JSON.stringify([...getSearch, search]));
+    } else {
+      localStorage.setItem('search', JSON.stringify([search]));
+    }
+  };
+
   const searchScienceArticles = async (searchValue) => {
     try {
       setLoading(true);
       setResponseApi([]);
       const data = await getInfomationsApi(searchValue);
-      setHistorySearch([...historySearch, search]);
+      saveHistorySearch();
       ref.current.value = '';
       setSearch('');
       setResponseApi(data);
@@ -44,14 +53,6 @@ export default function FormSearch() {
       window.console.log(error);
     }
   };
-
-  const saveHistorySearch = () => {
-    localStorage.setItem('search', JSON.stringify(historySearch));
-  };
-
-  useEffect(() => {
-    saveHistorySearch();
-  }, [historySearch]);
 
   return (
     <StyleForm>
