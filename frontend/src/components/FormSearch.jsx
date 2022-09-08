@@ -60,6 +60,7 @@ export default function FormSearch() {
           onChange={({ target }) => setSearch(target.value)}
           size="small"
           type="search"
+          data-testid="data-search"
         />
         <Button
           variant="contained"
