@@ -1,7 +1,8 @@
 {
     "env": {
         "browser": true,
-        "es2021": true
+        "es2021": true,
+        "jest": true
     },
     "overrides": [
     ],
@@ -12,12 +13,11 @@
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
-    "plugins": [
-        "react"
-    ],
+    "plugins":["react"],
     "extends": [
         "plugin:react/recommended",
-        "airbnb"
+        "airbnb",
+        "eslint:recommended"
     ],
     "rules": {
         "react/jsx-filename-extension": [
