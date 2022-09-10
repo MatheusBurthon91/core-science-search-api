@@ -6,15 +6,25 @@ import saveHistorySearch from '../helpers';
 export default function ShowItens({ res, ind }) {
   return (
     <Grid key={res._id} id={ind + res._id}>
-      <Typography sx={{ fontSize: 20, color: 'blue' }} color="text.secondary" variant="h1" component="div">
+      <Typography sx={{ fontSize: 25, color: 'blue' }} variant="h1" component="div" gutterBottom>
         {`Autores: ${res._source.authors.join(' | ')}`}
       </Typography>
-      <p>{`tipo de dado: ${res._type}`}</p>
-      <p>{`titulo do artigo: ${res._source.title}`}</p>
+      <Typography sx={{ fontSize: 19 }} variant="h2" gutterBottom>
+        <Typography sx={{ fontSize: 19, fontWeight: 'bold' }} variant="span">
+          titulo do artigo:
+        </Typography>
+        {` ${res._source.title}`}
+      </Typography>
+      <Typography sx={{ fontSize: 17 }} variant="h3" component="div" gutterBottom>
+        <Typography sx={{ fontSize: 17, fontWeight: 'bold' }} variant="span">
+          tipo de dado:
+        </Typography>
+        {` ${res._type}`}
+      </Typography>
       <p>
         {
             !res._source.description ? 'descrição do artigo: sem decrição' : `descrição do artigo: ${res._source.description}`
-          }
+        }
       </p>
       <Grid>
         {
