@@ -1,12 +1,14 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Grid } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import saveHistorySearch from '../helpers';
 
 export default function ShowItens({ res, ind }) {
   return (
     <Grid key={res._id} id={ind + res._id}>
-      <h3>{`Autores: ${res._source.authors.join(' | ')}`}</h3>
+      <Typography sx={{ fontSize: 20, color: 'blue' }} color="text.secondary" variant="h1" component="div">
+        {`Autores: ${res._source.authors.join(' | ')}`}
+      </Typography>
       <p>{`tipo de dado: ${res._type}`}</p>
       <p>{`titulo do artigo: ${res._source.title}`}</p>
       <p>
