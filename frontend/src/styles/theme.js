@@ -6,7 +6,7 @@ const theme = createTheme({
     h1: {
       fontSize: '2.0rem',
       fontWeight: 300,
-      color: '#3E7C17',
+      color: '#F9F5EB',
     },
   },
 });

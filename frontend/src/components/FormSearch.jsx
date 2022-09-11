@@ -2,6 +2,7 @@ import React, {
   useContext, useRef, useEffect,
 } from 'react';
 import { Typography, Input, Button } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
 import getInfomationsApi from '../services';
 import GlobalContext from '../context/GlobalContext';
 import StyleForm from '../styles/styleForm';
@@ -68,7 +69,7 @@ export default function FormSearch() {
           disabled={disableButton}
           size="small"
         >
-          achar artigo
+          <SearchIcon />
         </Button>
       </section>
     </StyleForm>
