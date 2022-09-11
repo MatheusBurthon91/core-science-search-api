@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import {
   Grid, Typography, ListItemButton, List, ListItem, Button,
 } from '@mui/material';
@@ -7,7 +8,7 @@ import saveHistorySearch from '../helpers';
 
 export default function ShowItens({ res, ind }) {
   return (
-    <Grid key={res._id} id={ind + res._id} container justifyContent="center" alignItems="center" sx={{ backgroundColor: '#FFEEAF' }}>
+    <Grid key={res._id} id={ind + res._id} container justifyContent="center" alignItems="center" sx={{ backgroundColor: '#AFB4FF' }}>
       <Grid container justifyContent="center" alignItems="center">
         <Typography sx={{ fontSize: 25, color: 'blue' }} variant="h1" component="div" gutterBottom>
           <Typography sx={{ fontSize: 25, fontWeight: 'bold' }} variant="span">
@@ -107,7 +108,7 @@ export default function ShowItens({ res, ind }) {
           size="small"
           variant="contained"
         >
-          favoritar/desfavoritar
+          <FavoriteIcon />
         </Button>
       </Grid>
     </Grid>

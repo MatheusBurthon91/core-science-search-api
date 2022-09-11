@@ -11,7 +11,7 @@ export default function SearchData() {
   return (
     <Grid>
       {loading && (<Loading />)}
-      {!responseApi ? (<HandleError />) : responseApi.map((res, ind) => (
+      {responseApi === undefined ? (<HandleError />) : responseApi.map((res, ind) => (
         <ShowItens key={res._id} res={res} ind={ind} />
       ))}
     </Grid>
