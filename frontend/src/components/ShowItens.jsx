@@ -1,14 +1,22 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Grid, Typography } from '@mui/material';
+import {
+  Grid, Typography, ListItemButton, List, ListItem, Button,
+} from '@mui/material';
 import saveHistorySearch from '../helpers';
 
 export default function ShowItens({ res, ind }) {
   return (
-    <Grid key={res._id} id={ind + res._id}>
-      <Typography sx={{ fontSize: 25, color: 'blue' }} variant="h1" component="div" gutterBottom>
-        {`Autores: ${res._source.authors.join(' | ')}`}
-      </Typography>
+    <Grid key={res._id} id={ind + res._id} container justifyContent="center" alignItems="center" sx={{ backgroundColor: '#E1FFEE' }}>
+      <Grid container justifyContent="center" alignItems="center">
+        <Typography sx={{ fontSize: 25, color: 'blue' }} variant="h1" component="div" gutterBottom>
+          <Typography sx={{ fontSize: 25, fontWeight: 'bold' }} variant="span">
+            Autores:
+          </Typography>
+          {` ${res._source.authors.join(' | ')}`}
+        </Typography>
+
+      </Grid>
       <Typography sx={{ fontSize: 19 }} variant="h2" gutterBottom>
         <Typography sx={{ fontSize: 19, fontWeight: 'bold' }} variant="span">
           titulo do artigo:
@@ -23,28 +31,60 @@ export default function ShowItens({ res, ind }) {
       </Typography>
       <p>
         {
-            !res._source.description ? 'descrição do artigo: sem decrição' : `descrição do artigo: ${res._source.description}`
+            !res._source.description ? (
+              <Typography sx={{ fontSize: 17 }} variant="h3" component="div" gutterBottom>
+                <Typography sx={{ fontSize: 17, fontWeight: 'bold' }} variant="span">
+                  descrição do artigo:
+                </Typography>
+                {' sem decrição'}
+              </Typography>
+            ) : (
+              <Typography sx={{ fontSize: 17 }} variant="h3" component="div" gutterBottom>
+                <Typography sx={{ fontSize: 17, fontWeight: 'bold' }} variant="span">
+                  descrição do artigo:
+                </Typography>
+                {` ${res._source.description}`}
+              </Typography>
+            )
         }
       </p>
-      <Grid>
-        {
-              res._source.urls.map((url, index) => (
-                <ul key={Math.random()}>
-                  <li>
-                    link da pesquisa:
-                    <a
+      <Grid container justifyContent="center" alignItems="center">
+        <Grid container justifyContent="center" alignItems="center">
+          <Typography sx={{ fontSize: 17, fontWeight: 'bold' }} variant="h3" component="div" gutterBottom>
+            mais informações:
+          </Typography>
+        </Grid>
+        { !res._source.urls.length ? <p>sem links</p>
+          : res._source.urls.map((url, index) => (
+            <List key={Math.random()}>
+              <ListItem disablePadding>
+                <Grid
+                  container
+                  item
+                  xs={5}
+                  md={3}
+                  direction="column"
+                >
+                  <Button variant="contained" color="success" size="small">
+                    <ListItemButton
+                      component="a"
                       href={url}
                       target="_blank"
                       rel="noreferrer"
+                      underline="hover"
+                      alignItens
                     >
-                      {` link: ${index + 1}`}
-                    </a>
-                  </li>
-                </ul>
-              ))
-            }
+                      <Typography sx={{ fontSize: 10 }} variant="span" component="div">
+                        {` link: ${index + 1}`}
+                      </Typography>
+                    </ListItemButton>
+                  </Button>
+                </Grid>
+              </ListItem>
+            </List>
+          ))}
       </Grid>
-      <button
+      <Button
         type="button"
         onClick={() => {
           const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
@@ -56,9 +96,11 @@ export default function ShowItens({ res, ind }) {
             saveHistorySearch('favorites', res);
           }
         }}
+        size="small"
+        variant="contained"
       >
         favoritar/desfavoritar
-      </button>
+      </Button>
     </Grid>
   );
 }
