@@ -1,5 +1,5 @@
-import { Grid } from '@mui/material';
 import React from 'react';
+import { Grid } from '@mui/material';
 
 export default function ShowHistorySearch() {
   const getSearch = JSON.parse(localStorage.getItem('search'));

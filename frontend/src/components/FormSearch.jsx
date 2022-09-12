@@ -5,6 +5,7 @@ import {
   Typography, Input, Button, Grid,
 } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
+import moment from 'moment';
 import getInfomationsApi from '../services';
 import GlobalContext from '../context/GlobalContext';
 import StyleForm from '../styles/styleForm';
@@ -39,7 +40,7 @@ export default function FormSearch() {
       setLoading(true);
       setResponseApi([]);
       const data = await getInfomationsApi(searchValue);
-      const now = new Date(Date.now());
+      const now = moment(new Date(Date.now())).format('DD/MM/YYYY');
       saveHistorySearch('search', [search, now]);
       ref.current.value = '';
       setSearch('');
