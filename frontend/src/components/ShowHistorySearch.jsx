@@ -6,11 +6,16 @@ export default function ShowHistorySearch() {
 
   return (
     <Grid container justifyContent="center" sx={{ backgroundColor: '#AFB4FF' }}>
-      <ul>
-        {Getsearch.map((search) => (
-          <li key={Math.random()}>{search}</li>
-        ))}
-      </ul>
+      <table>
+        <thead>
+          <td>Pesquisa</td>
+        </thead>
+        <tbody>
+          {Getsearch.map((search) => (
+            <tr key={Math.random()}>{search}</tr>
+          ))}
+        </tbody>
+      </table>
     </Grid>
   );
 }
