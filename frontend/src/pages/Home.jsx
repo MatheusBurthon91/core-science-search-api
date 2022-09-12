@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <Grid>
       <FormSearch />
-      <NavBar />
+      <NavBar barValue={0} />
       <SearchData />
     </Grid>
   );

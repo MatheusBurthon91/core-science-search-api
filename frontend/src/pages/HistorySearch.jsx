@@ -6,7 +6,7 @@ export default function HistorySearch() {
   return (
     <main>
       historico de pesquisas.
-      <NavBar />
+      <NavBar barValue={2} />
       <ShowHistorySearch />
     </main>
   );

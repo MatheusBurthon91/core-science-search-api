@@ -6,7 +6,7 @@ export default function Favorites() {
   return (
     <main>
       <h1 data-testid="favorite-title">listagem de favoritos.</h1>
-      <NavBar />
+      <NavBar barValue={1} />
       <GetFavorites />
     </main>
   );

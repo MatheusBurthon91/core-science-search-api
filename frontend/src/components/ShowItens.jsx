@@ -81,7 +81,7 @@ export default function ShowItens({ res, ind }) {
                       target="_blank"
                       rel="noreferrer"
                       underline="hover"
-                      alignItens
+                      alignItems="center"
                     >
                       <Typography sx={{ fontSize: 10 }} variant="span" component="div">
                         {` link: ${index + 1}`}
