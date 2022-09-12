@@ -39,7 +39,7 @@ export default function FormSearch() {
       setLoading(true);
       setResponseApi([]);
       const data = await getInfomationsApi(searchValue);
-      const now = Date.now();
+      const now = new Date(Date.now());
       saveHistorySearch('search', [search, now]);
       ref.current.value = '';
       setSearch('');
