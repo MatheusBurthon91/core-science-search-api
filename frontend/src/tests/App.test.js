@@ -88,7 +88,7 @@ describe('deve renderizar o componente App', () => {
     const linkFavorites = screen.getByRole('link', { name: /favoritos/i });
     UserEvent.click(linkFavorites);
     const { location: { pathname } } = history;
-    expect(pathname).toBe('favorites');
+    expect(pathname).toBe('/favorites');
   });
 
   test('testando link "Historico de pesquisas" que quando ele for clicado vai para a rota "/search_history"', () => {
@@ -100,6 +100,6 @@ describe('deve renderizar o componente App', () => {
     const linkSearchHistory = screen.getByRole('link', { name: /historico de pesquisas/i });
     UserEvent.click(linkSearchHistory);
     const { location: { pathname } } = history;
-    expect(pathname).toBe('search_history');
+    expect(pathname).toBe('/search_history');
   });
 });

@@ -16,7 +16,7 @@ export default function NavBar({ barValue }) {
       <Tabs value={value} onChange={handleChange} aria-label="nav tabs">
         <Tab label="Home" href="/" />
         <Tab label="Favoritos" href="/favorites" />
-        <Tab label="Historico de favoritos" href="/search_history" />
+        <Tab label="Historico de pesquisas" href="/search_history" />
       </Tabs>
     </Grid>
   );
