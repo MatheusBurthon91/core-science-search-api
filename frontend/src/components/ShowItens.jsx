@@ -5,6 +5,7 @@ import {
   Grid, Typography, ListItemButton, List, ListItem, Button,
 } from '@mui/material';
 import saveHistorySearch from '../helpers';
+import handleTitleForRender from '../helpers/HandleTitle';
 
 export default function ShowItens({ res, ind }) {
   return (
@@ -14,7 +15,7 @@ export default function ShowItens({ res, ind }) {
           <Typography sx={{ fontSize: 25, fontWeight: 'bold' }} variant="span">
             Autores:
           </Typography>
-          {` ${res._source.authors.join(' | ')}`}
+          {handleTitleForRender(res._source.authors)}
         </Typography>
       </Grid>
       <Grid container justifyContent="center" alignItems="center">

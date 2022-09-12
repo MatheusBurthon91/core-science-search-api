@@ -1,7 +1,9 @@
 import React, {
   useContext, useRef, useEffect,
 } from 'react';
-import { Typography, Input, Button } from '@mui/material';
+import {
+  Typography, Input, Button, Grid,
+} from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import getInfomationsApi from '../services';
 import GlobalContext from '../context/GlobalContext';
@@ -52,7 +54,7 @@ export default function FormSearch() {
       <Typography variant="h1" component="div" gutterBottom>
         Ache artigos cientificos.
       </Typography>
-      <section>
+      <Grid>
         <Input
           id="outlined-basic"
           inputRef={ref}
@@ -62,6 +64,7 @@ export default function FormSearch() {
           size="small"
           type="search"
           data-testid="data-search"
+          sx={{ backgroundColor: 'white', color: '#31087B' }}
         />
         <Button
           variant="contained"
@@ -71,7 +74,7 @@ export default function FormSearch() {
         >
           <SearchIcon />
         </Button>
-      </section>
+      </Grid>
     </StyleForm>
   );
 }
