@@ -1,5 +1,14 @@
 import React from 'react';
-import { Grid } from '@mui/material';
+import {
+  Grid,
+  TableContainer,
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
+  Paper,
+} from '@mui/material';
 
 export default function ShowHistorySearch() {
   const getSearch = JSON.parse(localStorage.getItem('search'));
@@ -7,20 +16,24 @@ export default function ShowHistorySearch() {
   return (
     <Grid container justifyContent="center" sx={{ backgroundColor: '#AFB4FF' }}>
       {!getSearch ? <h1>Não existe historico de pesquisas</h1> : (
-        <table>
-          <thead>
-            <th>Pesquisa</th>
-            <th>Data</th>
-          </thead>
-          <tbody>
-            {getSearch.map((search) => (
-              <tr key={Math.random()}>
-                <td>{search[0]}</td>
-                <td>{search[1]}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <TableContainer component={Paper}>
+          <Table sx={{ backgroundColor: '#AFB4FF' }} size="small">
+            <TableHead>
+              <TableRow>
+                <TableCell align="center">Pesquisa</TableCell>
+                <TableCell align="center">Data</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {getSearch.map((search) => (
+                <TableRow key={Math.random()}>
+                  <TableCell align="center">{search[0]}</TableCell>
+                  <TableCell align="center">{search[1]}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
       )}
     </Grid>
   );
