@@ -8,6 +8,7 @@ import {
   TableHead,
   TableRow,
   Paper,
+  Typography,
 } from '@mui/material';
 
 export default function ShowHistorySearch() {
@@ -15,9 +16,13 @@ export default function ShowHistorySearch() {
 
   return (
     <Grid container justifyContent="center" sx={{ backgroundColor: '#AFB4FF' }}>
-      {!getSearch ? <h1>Não existe historico de pesquisas</h1> : (
+      {!getSearch ? (
+        <Typography variant="h1" component="div" gutterBottom>
+          Não existe historico de pesquisas
+        </Typography>
+      ) : (
         <TableContainer component={Paper}>
-          <Table sx={{ backgroundColor: '#AFB4FF' }} size="small">
+          <Table sx={{ backgroundColor: '#AFB4FF', minWidth: 650 }} size="small">
             <TableHead>
               <TableRow>
                 <TableCell align="center">Pesquisa</TableCell>
