@@ -18,7 +18,13 @@ export default function NotFound() {
       margin="10px 0px"
     >
       <Card>
-        <CardContent>
+        <CardContent sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
+        >
           <Typography sx={{ fontSize: 25, color: 'blue' }} variant="h1" component="div">
             Você se perdeu retorne para a pagina inicial.
           </Typography>
@@ -35,7 +41,6 @@ export default function NotFound() {
               Home
             </Button>
           </CardActions>
-
         </CardContent>
       </Card>
     </Grid>
