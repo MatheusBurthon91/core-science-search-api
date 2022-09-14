@@ -9,6 +9,11 @@ const theme = createTheme({
       color: '#F9F5EB',
     },
   },
+  palette: {
+    background: {
+      default: '#AFB4FF',
+    },
+  },
 });
 
 export default theme;

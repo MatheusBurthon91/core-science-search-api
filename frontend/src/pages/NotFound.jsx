@@ -12,10 +12,9 @@ export default function NotFound() {
   return (
     <Grid
       container
-      direction="column"
       alignItems="center"
-      justify="center"
-      margin="10px 0px"
+      justifyContent="center"
+      sx={{ minHeight: '100vh', minWidth: '100vw' }}
     >
       <Card>
         <CardContent sx={{
